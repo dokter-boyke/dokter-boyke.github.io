@@ -1,6 +1,4 @@
-# **Madu Hitam Perkasa (MHP)** adalah madu herbal premium yang diformulasikan khusus untuk **meningkatkan vitalitas dan stamina pria**. Terbuat dari 100% bahan alami pilihan, **BPOM & Halal**.
-
----
+# **Madu Hitam Perkasa (MHP)** adalah madu herbal premium yang diformulasikan khusus untuk **meningkatkan vitalitas dan stamina pria**. Terbuat dari 100% bahan alami pilihan, **BPOM & Halal**
 
 ## ✨ 10 Manfaat Utama
 
