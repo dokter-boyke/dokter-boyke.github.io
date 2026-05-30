@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍯 Madu Hitam Perkasa — Herbal Premium Vitalitas Pria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; }
+
+        /* Header ala Shopee */
+        .header-shopee {
+            background: linear-gradient(135deg, #ee4d2d, #ff7337);
+            color: white;
+            padding: 12px 16px;
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .header-shopee .logo { font-size: 24px; }
+        .header-shopee h1 { font-size: 18px; font-weight: 600; flex: 1; }
+        .header-shopee .cart-icon { position: relative; font-size: 20px; }
+        .header-shopee .cart-badge {
+            position: absolute; top: -8px; right: -8px;
+            background: white; color: #ee4d2d; font-size: 10px;
+            width: 18px; height: 18px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Grid Produk ala Shopee */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px; padding: 8px;
+        }
+        @media (min-width: 768px) {
+            .product-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .product-card {
+            background: white; border-radius: 4px;
+            overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; position: relative;
+        }
+        .product-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .product-card img { width: 100%; height: 180px; object-fit: cover; }
+        .product-card .info { padding: 8px 10px; }
+        .product-card .name {
+            font-size: 12px; color: #333; line-height: 1.3;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+            overflow: hidden; margin-bottom: 4px; min-height: 32px;
+        }
+        .product-card .price { font-size: 16px; color: #ee4d2d; font-weight: 600; }
+        .product-card .sold { font-size: 10px; color: #999; margin-top: 2px; }
+        .product-card .discount-badge {
+            position: absolute; top: 8px; right: 8px;
+            background: rgba(255,215,0,0.95); color: #ee4d2d;
+            font-size: 10px; font-weight: bold; padding: 2px 6px;
+            border-radius: 2px;
+        }
+        .product-card .rating {
+            font-size: 10px; color: #ffa500; margin-top: 2px;
+        }
+
+        /* Bottom Navigation ala Shopee */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: white; display: flex; justify-content: space-around;
+            padding: 8px 0; border-top: 1px solid #eee;
+            z-index: 100;
+        }
+        .bottom-nav a {
+            text-align: center; color: #999; font-size: 10px;
+            text-decoration: none; display: flex; flex-direction: column;
+            align-items: center; gap: 2px;
+        }
+        .bottom-nav a.active { color: #ee4d2d; }
+        .bottom-nav a i { font-size: 20px; }
+
+        /* Banner Promo */
+        .banner { margin: 8px; border-radius: 8px; overflow: hidden; }
+        .banner img { width: 100%; display: block; }
+
+        /* Tombol Beli */
+        .btn-buy {
+            background: #ee4d2d; color: white; border: none;
+            padding: 6px 12px; border-radius: 4px;
+            font-size: 11px; font-weight: 600; cursor: pointer;
+            width: 100%; margin-top: 6px; transition: background 0.2s;
+        }
+        .btn-buy:hover { background: #d73212; }
+
+        /* Footer */
+        .footer { padding: 20px 16px 80px; text-align: center; color: #999; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header ala Shopee -->
+    <div class="header-shopee">
+        <span class="logo">🍯</span>
+        <h1>Madu Hitam Perkasa</h1>
+        <a href="https://wa.me/6281282996533" style="color:white;margin-right:8px;"><i class="fas fa-headset"></i></a>
+        <div class="cart-icon" onclick="alert('🛒 Keranjang masih kosong')">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge">0</span>
+        </div>
+    </div>
+
+    <!-- Banner Promo -->
+    <div class="banner">
+        <img src="https://i.ibb.co.com/wNnLtdm5/IMG-20260507-044958.png" alt="Promo Madu Hitam">
+    </div>
+
+    <!-- Grid Produk -->
+    <div class="product-grid" id="productGrid">
+        <!-- Produk 200ml -->
+        <div class="product-card" onclick="order('200ml', 50000)">
+            <span class="discount-badge">-17%</span>
+            <img src="https://i.ibb.co.com/zT2vDfzX/IMG-20260507-190918.png" alt="Madu 200ml" onerror="this.src='https://via.placeholder.com/300x300/fff5f5/ee4d2d?text=Madu+200ml'">
+            <div class="info">
+                <div class="name">Madu Hitam Perkasa 200ml — Herbal Vitalitas Pria BPOM Halal</div>
+                <div class="price">Rp50.000</div>
+                <div class="rating">★★★★★ 4.9 (128 terjual)</div>
+                <button class="btn-buy" onclick="event.stopPropagation(); order('200ml', 50000)">🛒 Beli</button>
+            </div>
+        </div>
+
+        <!-- Produk 250ml -->
+        <div class="product-card" onclick="order('250ml', 70000)">
+            <span class="discount-badge">-13%</span>
+            <img src="https://i.ibb.co.com/ZpY08dfg/IMG-20260507-190904.png" alt="Madu 250ml" onerror="this.src='https://via.placeholder.com/300x300/fff5f5/ee4d2d?text=Madu+250ml'">
+            <div class="info">
+                <div class="name">Madu Hitam Perkasa 250ml — Solusi Lemah Syahwat & Impotensi</div>
+                <div class="price">Rp70.000</div>
+                <div class="rating">★★★★★ 4.8 (256 terjual)</div>
+                <button class="btn-buy" onclick="event.stopPropagation(); order('250ml', 70000)">🛒 Beli</button>
+            </div>
+        </div>
+
+        <!-- Produk 350ml -->
+        <div class="product-card" onclick="order('350ml', 95000)">
+            <span class="discount-badge">-5%</span>
+            <img src="https://i.ibb.co.com/wNnLtdm5/IMG-20260507-044958.png" alt="Madu 350ml" onerror="this.src='https://via.placeholder.com/300x300/fff5f5/ee4d2d?text=Madu+350ml'">
+            <div class="info">
+                <div class="name">Madu Hitam Perkasa 350ml — Stamina Pria Dewasa 50+ Tahun</div>
+                <div class="price">Rp95.000</div>
+                <div class="rating">★★★★★ 5.0 (512 terjual)</div>
+                <button class="btn-buy" onclick="event.stopPropagation(); order('350ml', 95000)">🛒 Beli</button>
+            </div>
+        </div>
+
+        <!-- Paket Hemat -->
+        <div class="product-card" onclick="order('paket-hemat', 130000)">
+            <span class="discount-badge">-13%</span>
+            <img src="https://i.ibb.co.com/zT2vDfzX/IMG-20260507-190918.png" alt="Paket Hemat" onerror="this.src='https://via.placeholder.com/300x300/fff5f5/ee4d2d?text=Paket+Hemat'">
+            <div class="info">
+                <div class="name">Paket Hemat 2x250ml — Lebih Hemat, Khasiat Maksimal</div>
+                <div class="price">Rp130.000</div>
+                <div class="rating">★★★★★ 4.9 (89 terjual)</div>
+                <button class="btn-buy" onclick="event.stopPropagation(); order('paket-hemat', 130000)">🛒 Beli</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>🍯 Madu Hitam Perkasa © 2026</p>
+        <p style="margin-top:4px;">100% Herbal • BPOM • Halal • COD • Resi Otomatis</p>
+        <p style="margin-top:8px;">
+            <a href="https://shopee.co.id/bakulgrosirherbal" style="color:#ee4d2d;text-decoration:none;">🛍️ Shopee</a> &nbsp;|&nbsp;
+            <a href="https://wa.me/6281282996533" style="color:#ee4d2d;text-decoration:none;">📱 WhatsApp</a>
+        </p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="#" class="active"><i class="fas fa-home"></i> Beranda</a>
+        <a href="#"><i class="fas fa-box"></i> Produk</a>
+        <a href="https://wa.me/6281282996533"><i class="fas fa-comment"></i> Chat</a>
+        <a href="#"><i class="fas fa-shopping-cart"></i> Keranjang</a>
+        <a href="#"><i class="fas fa-user"></i> Akun</a>
+    </div>
+
+    <script>
+        function order(produk, harga) {
+            const wa = '6281282996533';
+            const msg = `Halo, saya mau order:\n\n📦 ${produk}\n💰 Rp ${harga.toLocaleString()}\n\nMohon dibantu kak 🙏`;
+            window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
